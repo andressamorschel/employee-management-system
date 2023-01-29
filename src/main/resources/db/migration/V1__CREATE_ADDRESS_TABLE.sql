@@ -1,0 +1,9 @@
+CREATE TABLE address (
+  address_id VARCHAR(36) NOT NULL PRIMARY KEY,
+  street VARCHAR(255) NOT NULL,
+  city VARCHAR(255) NOT NULL,
+  number VARCHAR(10) NOT NULL,
+  neighborhood VARCHAR(255) NOT NULL,
+  country VARCHAR(255) NOT NULL,
+  state VARCHAR(255) NOT NULL
+)
