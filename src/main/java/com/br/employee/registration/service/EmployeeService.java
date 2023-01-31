@@ -31,12 +31,7 @@ public class EmployeeService {
                             employeeDomain.getEmployeeId());
                 });
 
-        var domain = AddressDomain.valueOf(employeeRequest.getAddress());
-        var address = addressRepository.save(domain);
-        var saved = EmployeeDomain.valueOf(employeeRequest);
-        saved.setAddress(address);
-        var employeeSaved = employeeRepository.save(saved);
-
+        var employeeSaved = employeeRepository.save(EmployeeDomain.valueOf(employeeRequest));
         return EmployeeResponse.valueOf(employeeSaved);
     }
 

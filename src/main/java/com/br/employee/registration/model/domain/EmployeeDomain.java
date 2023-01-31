@@ -1,16 +1,13 @@
 package com.br.employee.registration.model.domain;
 
-import com.br.employee.registration.model.dto.request.EmployeeRequest;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.PrimaryKeyJoinColumn;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
 import com.br.employee.registration.enumerated.ContractType;
 import com.br.employee.registration.enumerated.GenderType;
+import com.br.employee.registration.model.dto.request.EmployeeRequest;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -19,10 +16,12 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
