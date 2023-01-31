@@ -1,5 +1,7 @@
 package com.br.employee.registration.model.domain;
 
+import com.br.employee.registration.model.dto.request.AddressRequest;
+import com.br.employee.registration.model.dto.request.EmployeeRequest;
 import org.hibernate.annotations.GenericGenerator;
 
 import jakarta.persistence.Column;
@@ -21,7 +23,6 @@ public class AddressDomain {
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private String address_id;
-
     @Column(name = "street")
     private String street;
 
@@ -39,5 +40,17 @@ public class AddressDomain {
 
     @Column(name = "country")
     private String country;
+
+    public static AddressDomain valueOf(AddressRequest addressRequest){
+        return AddressDomain.builder()
+            .city(addressRequest.getCity())
+            .country(addressRequest.getCountry())
+            .state(addressRequest.getState())
+            .state(addressRequest.getState())
+            .number(addressRequest.getNumber())
+            .street(addressRequest.getStreet())
+            .neighborhood(addressRequest.getNeighborhood())
+            .build();
+    }
 
 }
