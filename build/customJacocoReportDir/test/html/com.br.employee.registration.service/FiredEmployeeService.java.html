@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FiredEmployeeService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">EmployeeRegistration</a> &gt; <a href="index.source.html" class="el_package">com.br.employee.registration.service</a> &gt; <span class="el_source">FiredEmployeeService.java</span></div><h1>FiredEmployeeService.java</h1><pre class="source lang-java linenums">package com.br.employee.registration.service;
+
+import com.br.employee.registration.enumerated.ReasonForDismissalType;
+import com.br.employee.registration.exception.EmployeeNotFoundException;
+import com.br.employee.registration.model.domain.EmployeeDomain;
+import com.br.employee.registration.model.domain.FiredEmployeeDomain;
+import java.math.BigDecimal;
+import org.springframework.stereotype.Service;
+
+import com.br.employee.registration.model.dto.request.FiredEmployeeRequest;
+import com.br.employee.registration.repository.EmployeeRepository;
+import com.br.employee.registration.repository.FiredEmployeeRepository;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+<span class="fc" id="L17">@Slf4j</span>
+@Service
+<span class="fc" id="L19">@RequiredArgsConstructor</span>
+public class FiredEmployeeService {
+
+    private final EmployeeRepository employeeRepository;
+
+    private final FiredEmployeeRepository firedEmployeeRepository;
+
+    public void createFiredEmployee(String employeeId, FiredEmployeeRequest firedEmployeeRequest) {
+<span class="nc" id="L27">        var employeeDomain = employeeRepository.findById(employeeId)</span>
+<span class="nc" id="L28">                .orElseThrow(() -&gt; new EmployeeNotFoundException(&quot;Employee not found with id: &quot; + employeeId));</span>
+
+<span class="nc" id="L30">        employeeRepository.delete(employeeDomain);</span>
+        // TODO -&gt; criar microsserviço de ponto e verificar horas trabalhadas
+        // TODO -&gt; aplicar factory method para calcular rescisão
+<span class="nc" id="L33">    }</span>
+
+    private FiredEmployeeDomain buildFiredEmployeeDomain(EmployeeDomain employeeDomain, FiredEmployeeRequest firedEmployeeRequest) {
+<span class="nc" id="L36">        return FiredEmployeeDomain.builder()</span>
+<span class="nc" id="L37">                .fulfilledPriorNotice(firedEmployeeRequest.isFulfilledPriorNotice())</span>
+<span class="nc" id="L38">                .reasonForDismissal(ReasonForDismissalType.fromName(firedEmployeeRequest.getReasonForDismissal())</span>
+<span class="nc" id="L39">                        .orElse(null))</span>
+<span class="nc" id="L40">                .shutdownDate(firedEmployeeRequest.getShutdownDate())</span>
+<span class="nc" id="L41">                .document(employeeDomain.getDocument())</span>
+<span class="nc" id="L42">                .name(employeeDomain.getName())</span>
+<span class="nc" id="L43">                .occupation(employeeDomain.getOccupation())</span>
+<span class="nc" id="L44">                .terminationAmount(null)</span>
+<span class="nc" id="L45">                .build();</span>
+    }
+
+    private BigDecimal calculateTerminationAmount(){
+<span class="nc" id="L49">        return null;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
