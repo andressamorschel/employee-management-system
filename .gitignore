@@ -18,10 +18,13 @@
 *.zip
 *.tar.gz
 *.rar
-HELP.md
-.idea
-.gradle
-/build
+/ms-employee-registration/build
+/ms-employee-registration/.gradle
+/ms-employee-registration/.idea
+/ms-employee-registration/gradle
+/ms-employee-registration/gradlew
+/ms-employee-registration/gradlew.bat
+/ms-employee-registration/HELP.md
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
