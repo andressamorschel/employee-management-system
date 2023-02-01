@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.br.employee.registration.service.EmployeeServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-02-01T14:58:34" hostname="SEN002402" time="0.109">
+  <properties/>
+  <testcase name="shouldCreateEmployeeThrowsEmployeeAlreadyExistException()" classname="com.br.employee.registration.service.EmployeeServiceTest" time="0.099"/>
+  <testcase name="shouldGetEmployeeByIdSuccessfully()" classname="com.br.employee.registration.service.EmployeeServiceTest" time="0.003"/>
+  <testcase name="shouldCreateEmployeeSuccessfully()" classname="com.br.employee.registration.service.EmployeeServiceTest" time="0.004"/>
+  <testcase name="shouldGetEmployeeByIdThrowsEmployeeNotFoundException()" classname="com.br.employee.registration.service.EmployeeServiceTest" time="0.001"/>
+  <testcase name="shouldGetEmployeesSuccessfully()" classname="com.br.employee.registration.service.EmployeeServiceTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
