@@ -1,5 +1,10 @@
 version: '3'
 services:
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - "27017:27017"
   db:
     container_name: db_employee_registration
     image: mysql:8

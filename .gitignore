@@ -18,6 +18,7 @@
 *.zip
 *.tar.gz
 *.rar
+.idea
 /ms-employee-registration/build
 /ms-employee-registration/.gradle
 /ms-employee-registration/.idea
