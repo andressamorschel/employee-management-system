@@ -1,7 +1,6 @@
 package com.br.control.hours.model.domain;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.math.BigDecimal;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,27 +10,23 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
+@Builder
 @Document
 @NoArgsConstructor
-@Builder
 @AllArgsConstructor
-public class RecordOfHoursDomain {
+public class PaymentDomain {
 
     @Id
     private String id;
 
     @Indexed(unique = true)
-    private String recordOfHoursId;
+    private String paymentId;
 
     private String employeeId;
 
-    private LocalDate date;
+    private BigDecimal paymentAmount;
 
-    private LocalTime startTime;
+    private BigDecimal INSSAmount;
 
-    private LocalTime endTime;
-
-    private LocalTime endInterval;
-
-    private LocalTime startInterval;
+    private BigDecimal IRRPFAmount;
 }
